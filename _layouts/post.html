@@ -1,92 +1,59 @@
 ---
 layout: default
+css: ["post.css"]
+js: ["post.js"]
 ---
-{% assign trans = site.data.values[site.lan] %}
-<div class="well article">
-        <h2><a href="{{ site.baseurl}}{{ page.url }}">{{ page.title }}</a></h2>
-        <span class="post-date">
-            {% assign date_format = site.date_format.title %}
-            {{ page.date | date: date_format }}
+<div id="post-info">
+  <h3>{{page.title}}</h3>
+  <ul class="collapsible hoverable" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header">
+        <span>
+          <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Date">date_range</i>
+          {{page.date | date: "%d/%m/%Y %H:%M"}}
+          <i id="indicate" class="right material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Show extra info">info</i>
         </span>
-        <hr style="border-top:1px solid #28323C;"/>
-    {% if site.comments and page.comments %}
-        {% if site.disqus != '' %}
-        <p class="author"><a href="#disqus_thread" data-disqus-identifier="{{ page.url | slugify }}">Comments</a></p>
-        {% elsif site.isso != '' %}
-        <p class="author"><a href="{{ site.baseurl }}{{ page.url }}{{ site.isso_suffix }}#isso-thread">Comments</a></p>
-        {% endif %}
-    {% endif %}
-    <div class="post-content">
+      </div>
+      <div class="collapsible-body">
+        <span>
+          <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Categories">sort</i>
+          {% for cat in page.categories %}
+          {% capture test %}{{cat | slice: 0}}{% endcapture %}
+          {% capture testup %}{{cat | slice: 0 | upcase}}{% endcapture %}
+          <a href="{{site.baseurl}}/categories#{{cat | slugify}}{% if test == testup %}_cap{% endif %}" target="_blank"><div class="chip">{{cat}}</div></a>
+          {% endfor %}
+        </span>
+        <span>
+          <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Tags">label</i>
+          {% for tag in page.tags %}
+          {% capture test %}{{tag | slice: 0}}{% endcapture %}
+          {% capture testup %}{{tag | slice: 0 | upcase}}{% endcapture %}
+          <a href="{{site.baseurl}}/tags#{{tag | slugify}}{% if test == testup %}_cap{% endif %}" target="_blank"><div class="chip">{{tag}}</div></a>
+          {% endfor %}
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="divider"></div>
+<div class="row">
+  <div class="col s12">
     {{ content }}
-    <hr style="border-top:1px solid #28323C;"/>
-
-    <!-- tags and categories under post -->
-    {% unless page.categories == empty %}
-    <ul class="list-unstyled list-inline">
-      <li><i class="icon-folder-open"></i></li>
-      {% assign categories_list = page.categories %}
-      {% if categories_list.first[0] == null %}
-        {% for category in categories_list %} 
-            <li class="icon-style"><a href="{{ site.baseurl }}/categories.html">
-                {{ category | join: "/" }} <span>({{ site.categories[category].size }})</span>
-                {% unless forloop.last %},{% endunless %}
-            </a></li>
-        {% endfor %}
-      {% else %}
-        {% for category in categories_list %} 
-            <li class="icon-style"><a href="{{ site.baseurl }}/categories.html">
-                {{ category[0] | join: "/" }} <span>/{{ category[1].size }})</span>
-            </a></li>
-        {% endfor %}
-      {% endif %}
-    </ul>
-    {% endunless %}  
-
-    {% unless page.tags == empty %}
-    <ul class="list-unstyled list-inline">
-      <li><i class="icon-tags"></i></li>
-      {% assign tags_list = page.tags %}
-      {% if tags_list.first[0] == null %}
-        {% for tag in tags_list %} 
-            <li class="icon-style">
-                <a href="{{ site.baseurl }}/tags.html">
-                {{ tag }} <span>({{ site.tags[tag].size }})</span>
-                {% unless forloop.last %},{% endunless %}
-                </a>
-            </li>
-        {% endfor %}
-      {% else %}
-        {% for tag in tags_list %} 
-            <li class="icon-style">
-                <a href="{{ site.baseurl }}/tags.html">
-                    {{ tag[0] }} <span>({{ tag[1].size }})</span>
-                    {% unless forloop.last %},{% endunless %}
-                </a>
-            </li>
-           
-        {% endfor %}
-      {% endif %}
-      {% assign tags_list = nil %}
-    </ul>
-    {% endunless %}  
-
-    </div>
-    {% if page.comments %}
-        {% if site.disqus != '' %}
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    </div>
-        {% elsif site.isso != '' %}
-        <section id="isso-thread"></section>
-        {% endif %}
-    {% endif %}
+  </div>
 </div>
-<div class="pagination">
-    {% if page.next %}
-    <a class="btn btn-default" href="{{ site.baseurl}}{{ page.next.url }}" class="next">{{ trans.newer_post }}</a>
-    {% endif %}
-    {% if page.previous %}
-    <a class="btn btn-default" href="{{ site.baseurl}}{{ page.previous.url }}" class="previous">{{ trans.older_post }}</a>
-    {% endif %}
-</div>
+{% if site.disqus_shortname and page.comments %}
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = "{{site.url}}{{site.baseurl}}{{page.url}}";
+    this.page.identifier = "{{page.id}}";
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//{{site.disqus_shortname}}.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
