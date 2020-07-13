@@ -20,7 +20,7 @@ baseurl: ""
 url: "https://fairguard.github.io"
 permalink: /:year/:month/:day/:title
 repository: fairguard/fairguard.github.io
-paginate: 5
+paginate: 15
 
 # MatJek specific configurations
 #github_profile: "https://github.com/ShawnTeoh"
