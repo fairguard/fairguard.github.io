@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: FairGuard Blog
 description: > # this means to ignore newlines until "baseurl:"
-  手游保护 u3d 加固 mobile game protect unity3d 游戏保护 资源加密 assetbundle encrypt
+  反外挂 u3d加密 手游保护 u3d 加固 mobile game protect unity3d 游戏保护 资源加密 assetbundle encrypt
 baseurl: ""
 url: "https://fairguard.github.io"
 permalink: /:year/:month/:day/:title
