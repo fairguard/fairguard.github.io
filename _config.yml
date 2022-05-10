@@ -33,7 +33,7 @@ contact_url: "https://www.fair-guard.com"
 
 # Build settings
 markdown: kramdown
-gems:
+plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
@@ -43,4 +43,12 @@ exclude:
   - Gemfile.lock
 sass:
   style: compressed
+compress_html:
+  blanklines:       true
+
+excerpt_separator: '<!-- more -->'
+
+auto_excerpt:
+    enable: true
+
 future: true

@@ -5,7 +5,7 @@ date:   2021-03-15 11:30:10  +0800
 categories: 案例
 tags:  Roguelike 客户案例 游戏保护 单机
 ---
-某Roguelike+单机玩法的游戏。游戏界面如下图：
+某Roguelike+单机玩法的游戏。游戏界面如下图：<!-- more -->
 
  ![315_15](/assets/res/202103/315_15.jpeg)
 

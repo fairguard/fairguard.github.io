@@ -6,7 +6,7 @@ categories: unity加密
 tags:  unity加密  global-metadata.dat加密 il2cpp加密
 ---
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;众所周知，Unity 游戏有两种打包方式 mono 与 il2cpp。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;众所周知，Unity 游戏有两种打包方式 mono 与 il2cpp。<!-- more -->
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在 mono 模式下，游戏 C# 代码被编译为 IL(中间代码) 并生成 dll 文件，然后 dll 被打包进最后的游戏包文件。由于 IL 非常容易被 ILSpy / .NET Reflector 等专业反编译软件分析逆向，所以在无保护情况下，游戏的安全性极差。如下图，.NET Reflector 几乎可以还原出 C# 文件，外挂开发者可以凭此迅速制作出强大的外挂：
 
@@ -31,21 +31,21 @@ tags:  unity加密  global-metadata.dat加密 il2cpp加密
 2、加密 libil2cpp.so 文件。由于 IL2cppDumper 需要依赖 libil2cpp.so 对应 global-metadata.dat 文件中的字符串地址，所以对 libil2cpp.so 做深度加密非常有必要。即使从内存中 dump 出来 libil2cpp.so , 依然不会被 IL2cppDumper 正常识别。
 
 FairGuard 会使用独创的无导出/[**无导入函数SO加壳方案**](https://www.fair-guard.com/index/news-view.html?id=373)，对il2cpp进行加壳。效果如下所示，原始未加壳il2cpp.so有519个导出函数：
-   
+
    ![image.png](/assets/res/202103/325/6.png)
-   
+
    FairGuard加壳后il2cpp.so，无导出函数：
-   
+
    ![image.png](/assets/res/202103/325/7.png)
-   
+
    原始未加壳il2cpp.so有252个导入函数：
-   
+
    ![image.png](/assets/res/202103/325/8.png)
-   
+
    FairGuard加壳后il2cpp.so，无导入函数：
-   
+
    ![image.png](/assets/res/202103/325/9.png)
-   
+
 使用这个方案加壳后，即使从内存中 dump 出来 libil2cpp.so , 依然不会被 IL2cppDumper 正常识别。效果如下：
 
 ![5](/assets/res/202103/325/5.png)

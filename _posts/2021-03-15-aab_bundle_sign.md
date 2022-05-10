@@ -6,7 +6,7 @@ categories: Android签名
 tags:  aab包 Appbundle 如何签名 签名工具
 ---
 
-如果对App bundle包内的文件做了修改，或者增删文件，就需要重新签名才能在google play提交上架，不然会出现如下图的报错。
+如果对App bundle包内的文件做了修改，或者增删文件，就需要重新签名才能在google play提交上架，不然会出现如下图的报错。<!-- more -->
 
 ![image001.png](/assets/res/202103/315_10.png)
 

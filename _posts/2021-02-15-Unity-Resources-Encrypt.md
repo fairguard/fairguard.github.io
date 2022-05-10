@@ -6,7 +6,7 @@ categories: unity加密
 tags:  unity加密 Resources加密
 ---
 
-Unity Resources类型的资源因为简单易用的特点，使其非常适合用于快速开发原型。目前还有很多游戏使用这种类型的资源，而不是使用Assetbundle。
+Unity Resources类型的资源因为简单易用的特点，使其非常适合用于快速开发原型。目前还有很多游戏使用这种类型的资源，而不是使用Assetbundle。<!-- more -->
 
 Unity Resources资源文件打包后,在assets/bin/Data 路径下以hash值命名的文件形式存在，如下图所示：
 

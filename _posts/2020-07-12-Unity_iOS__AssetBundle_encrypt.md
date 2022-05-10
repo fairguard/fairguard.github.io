@@ -7,7 +7,7 @@ tags: ab加密 assetbundle资源加密 ab资源加密 assetbundle资源加密 un
 ---
 ##### **一、背景**
 
-​      AssetBunlde资源包是unity引擎游戏对资源(声音、图片、脚本等)的压缩包，那我们为啥要保护AssetBunlde(以下简称AB包)？对于一般技术人员都清楚, 游戏逆向者(游戏外挂制作者)一般通过游戏资源修改工具(AssetStudio、UABE)修改之后重打包实现某种程度正常游戏达不到的功能，例如射击类修改资源后可以透视，等等，下面是某作者技术文章就说的很明白怎么破解AB包。
+​      AssetBunlde资源包是unity引擎游戏对资源(声音、图片、脚本等)的压缩包，那我们为啥要保护AssetBunlde(以下简称AB包)？对于一般技术人员都清楚, 游戏逆向者(游戏外挂制作者)一般通过游戏资源修改工具(AssetStudio、UABE)修改之后重打包实现某种程度正常游戏达不到的功能，例如射击类修改资源后可以透视，等等，下面是某作者技术文章就说的很明白怎么破解AB包。<!-- more -->
 
 <img src = "/assets/res/202007/31.png" style="zoom:50%" />
 
@@ -54,7 +54,7 @@ tags: ab加密 assetbundle资源加密 ab资源加密 assetbundle资源加密 un
 - 4.1、 加密前后AssetBundle资源效果
 
 <img src = "/assets/res/202007/36.gif" style="zoom:60%" />
-   
+
 - 4.2、 加密后APP启动效果
 
 <img src = "/assets/res/202007/37.gif" />
