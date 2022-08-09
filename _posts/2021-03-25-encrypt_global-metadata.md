@@ -30,21 +30,21 @@ tags:  unity加密  global-metadata.dat加密 il2cpp加密
 
 2、加密 libil2cpp.so 文件。由于 IL2cppDumper 需要依赖 libil2cpp.so 对应 global-metadata.dat 文件中的字符串地址，所以对 libil2cpp.so 做深度加密非常有必要。即使从内存中 dump 出来 libil2cpp.so , 依然不会被 IL2cppDumper 正常识别。
 
-FairGuard 会使用独创的无导出/[**无导入函数SO加壳方案**](https://www.fair-guard.com/index/news-view.html?id=373)，对il2cpp进行加壳。效果如下所示，原始未加壳il2cpp.so有519个导出函数：
+FairGuard 会使用独创的无导出/[**无导入函数SO加壳方案**](https://www.fair-guard.com/index/news-view.html?id=373)，对il2cpp进行加壳。效果如下所示，原始未加壳il2cpp.so有多个导出函数：
 
-   ![image.png](/assets/res/202103/325/6.png)
+   ![image.png](/assets/res/202103/导出函数.png)
 
    FairGuard加壳后il2cpp.so，无导出函数：
 
-   ![image.png](/assets/res/202103/325/7.png)
+   ![image.png](/assets/res/202103/无导入无导出函数效果图.png)
 
-   原始未加壳il2cpp.so有252个导入函数：
+   原始未加壳il2cpp.so有多个导入函数：
 
-   ![image.png](/assets/res/202103/325/8.png)
+   ![image.png](/assets/res/202103/导入函数.png)
 
    FairGuard加壳后il2cpp.so，无导入函数：
 
-   ![image.png](/assets/res/202103/325/9.png)
+   ![image.png](/assets/res/202103/无导入无导出函数效果图.png)
 
 使用这个方案加壳后，即使从内存中 dump 出来 libil2cpp.so , 依然不会被 IL2cppDumper 正常识别。效果如下：
 
