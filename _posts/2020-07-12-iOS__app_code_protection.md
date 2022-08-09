@@ -43,11 +43,6 @@ iOS App 客户端的加密防护工作可以分为如下几个角度：
 
 <img src = "/assets/res/202007/51.png" style="zoom:30%" />  
 
-<img src = "/assets/res/202007/52.png" style="zoom:35%" />  
-
-<img src = "/assets/res/202007/53.png" style="zoom:30%" />  
-
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们 FairGuard 目前支持代码逻辑混淆、字符串混淆，也是基于 LLVM 的 IR 层的混淆 Pass，但是不是使用开源的 LLVM 项目，而是通过 HOOK 了 Xcode 里面 Apple 的 clang，在其执行优化的过程拦截执行我们优化 Pass，最小程度的减少用户接入成本和体验效果。对用户来说完全无感知。<br/><br/>
 
 ##### 四、代码行为防护
