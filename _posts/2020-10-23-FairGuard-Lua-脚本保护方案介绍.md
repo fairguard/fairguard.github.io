@@ -80,11 +80,8 @@ tags:  lua加密 脚本保护
 	--lua-encrypt-sign LUA_ENCRYPT_SIGN    指定 XXTEA 加密功能的 sign 字段。
 
 
-​		但是这个加密非常容易被破解，如下图，外挂制作者可以很容易就在 libcocos2dlua.so 中找到 xxtea 的密钥, 之后就可以解密出脚本[6]：
+​		但是这个加密非常容易被破解，外挂制作者可以很容易就在 libcocos2dlua.so 中找到 xxtea 的密钥, 之后就可以解密出脚本  
 
-> 打开 string 窗口，直接搜索 sign，key 就在附近
-
-![xxtea_key](/assets/res/202010/xxtea_key.png)
 
 ##### 2. 自定义 Lua 操作码
 
@@ -132,11 +129,11 @@ tags:  lua加密 脚本保护
 
    正常的 Lua 虚拟机 Native 层代码，可以看到非常多的 Lua 接口：
 
-   ![ori_lua_so](/assets/res/202010/ori_lua_so.jpg)
+   ![ori_lua_so](/assets/res/202103/lua1.png)
 
    我们处理后的 Lua 虚拟机 Native 层代码，看不到没有任何接口：
 
-   ![protected_lua_so](/assets/res/202010/protected_lua_so.jpg)
+   ![protected_lua_so](/assets/res/202103/lua2.png)
 
 **4. 接入方便**
 
