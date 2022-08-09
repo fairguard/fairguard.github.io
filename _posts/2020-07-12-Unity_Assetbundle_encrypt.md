@@ -32,7 +32,7 @@ tags: Assetbundle加密 ab包加密 iOS资源加密 unity加密
 
 1. 只有资源被加载的时候才会解密，不会增加启动延时  
 2. 加密强度很高，加解密算法进行了自定义混淆，让破解者无法分析出算法，算法流程图如下所示：  
-![gaitubao_image002.png](/assets/res/202007/42.png)  
+![gaitubao_image002.png](/assets/res/202103/无导入函数代码流程图.png)  
 3. 兼容性高  
 通过 Android SO 加壳或 iOS  静态 hook 导入的纯 native 方案，兼容所有 32 位和 64 位指令集。  
 4. 解密速度非常快  
