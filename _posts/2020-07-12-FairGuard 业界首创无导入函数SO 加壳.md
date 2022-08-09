@@ -7,23 +7,9 @@ tags: so加壳 游戏引擎加固 模块加固
 ---
 Android SO 模块逆向分析有一个非常重要的线索就是导入函数，so 使用的系统 api 都可以在导入函数表里看到。<!-- more -->
 
-某讯手游保护 SDK 所用 so 的导入表:
+某手游保护 SDK 所用 so 的导入表:
 
-![image.png](/assets/res/202007/21.png)
-
-这是某讯手游保护 SDK 所用 so 的导入函数，有184个。通过IDA的导入函数交叉引用功能，可定位到使用 api 的代码使用位置.
-
- snprintf  API函数的交叉引用:
-
-![image.png](/assets/res/202007/22.png)
-
-
-
-逆向分析者通过导入函数的交叉引用定位到如下图所示的代码位置:
-
-![image.png](/assets/res/202007/23.png)
-
-
+![image.png](/assets/res/202103/so加壳.png)
 
 可以看到 **fopen,fgets,snprintf** 等函数的调用，以及 **/proc/self/cmdline** 和 **/data/data/%s** 字符串，比较明显得看出来是在做进程扫描。
 
@@ -57,14 +43,13 @@ FairGuard 技术团队凭借 10 多年的安全技术积累，完美解决上述
 
 下面是无导入函数 SO 加壳后的效果，**Imports 下面无任何函数**:
 
-​           ![image.png](/assets/res/202007/24.png)
+​           ![image.png](/assets/res/202103/无导入无导出函数效果图.png)
 
 
 
 除了无导入函数的实现，FairGuard SO 加壳还提供了如下安全功能:  
 
-1. 导出函数清除和加密, 不给破解者留下导出函数的分析线索。SO 加壳后，导出函数列表空白:  
-![image.png](/assets/res/202007/25.png)  
+1. 导出函数清除和加密, 不给破解者留下导出函数的分析线索。SO 加壳后，导出函数列表空白。  
 
 2. 虚拟化 elf 结构。对 so 进行结构虚拟化，使得 so 原始结构被破解重构掉，无法还原出原始 so，也就无法脱壳。  
 
