@@ -12,7 +12,7 @@ Mono 是由跨平台的开源.NET 实现，它允许开发者使用 C# 等编程
 
 在 Mono 模式下，游戏 C# 代码被编译为 IL (中间代码) 并生成 dll 文件，然后将 dll 打进游戏包文件。但由于 IL 非常容易被 ILSpy / .NET Reflector 等专业反编译软件分析逆向，所以在无保护情况下，游戏的安全性极差。  
 
-![315_21](/assets/res/202103/.NETReflector还原出C#文件.png)  
+![315_21](/assets/res/202103/NETReflector还原出C#文件.png)  
 
 .NET Reflector 几乎可以还原出 C# 文件  
 
@@ -39,7 +39,7 @@ IL2CPPDumper 接收 libil2cpp.so / global-metadata.dat文件路径
 
 而 Zygisk-IL2CppDumper 、funil2cpp 等逆向工具的出现，将游戏安全对抗激烈程度抬升到了新高度。  
 
-![315_21](/assets/res/202103/Zygisk-il2cppDumper界面及操作流程.png)  
+![315_21](/assets/res/202103/Zygisk-il2cppDumper界面及操作流程1.png)  
 
 逆向工具Zygisk-il2cppDumper界面及操作流程  
 
