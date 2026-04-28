@@ -16,7 +16,7 @@ tags: AI自瞄  阿里云  FairGuard游戏加固
 
 作为游戏安全领域的深耕者，FairGuard长期专注于游戏加固、反外挂及防破解领域的技术研究。独立、自主研发包含无导入函数SO加壳、无API签名校验、多端通用的Unity AssetBundle资源加密方案、动态AI行为检测、游戏专用设备指纹方案等多项业界独家技术。
 
-![315_21](/assets/res/202103/4231.jpg)  
+![315_21](/assets/res/202103/4282.png)  
 
 FairGuard产品覆盖 Android、iOS、Windows、Mac、鸿蒙NEXT、小游戏等全平台，适配 Unity、Cocos、UE 等全游戏引擎，构建了“引擎加固、反外挂、防破解、在线控制更新、动态风险感知”五位一体的全链路游戏安全防护体系。
 
